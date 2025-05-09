@@ -1,0 +1,7 @@
+streamlit
+llama-index
+openai
+pandas
+requests
+tempfile
+pathlib
