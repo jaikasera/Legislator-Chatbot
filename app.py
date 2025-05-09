@@ -47,23 +47,20 @@ def download_and_process_pdf(url, temp_dir):
 def extract_pdf_urls_from_csv():
     pdf_docs = []
     temp_dir = tempfile.mkdtemp()
-    
-    # Read CSV files
-    csv_files = ['data/votinghistory.csv', 'data/cuthearings.csv']
-    
-    for csv_file in csv_files:
-        try:
-            df = pd.read_csv(csv_file)
-            # Look for columns that might contain PDF URLs
-            for col in df.columns:
-                if df[col].astype(str).str.contains('pdf').any():
-                    pdf_urls = df[df[col].astype(str).str.contains('pdf')][col].unique()
-                    for url in pdf_urls:
-                        if isinstance(url, str) and url.endswith('.pdf'):
-                            print(f"Processing PDF from {url}")
-                            pdf_docs.extend(download_and_process_pdf(url, temp_dir))
-        except Exception as e:
-            st.warning(f"Error processing {csv_file}: {str(e)}")
+
+    csv_file = "data/hearings.csv"
+    try:
+        df = pd.read_csv(csv_file)
+        # Look for columns that might contain PDF URLs
+        for col in df.columns:
+            if df[col].astype(str).str.contains('pdf').any():
+                pdf_urls = df[df[col].astype(str).str.contains('pdf')][col].unique()
+                for url in pdf_urls:
+                    if isinstance(url, str) and url.endswith('.pdf'):
+                        print(f"Processing PDF from {url}")
+                        pdf_docs.extend(download_and_process_pdf(url, temp_dir))
+    except Exception as e:
+        st.warning(f"Error processing {csv_file}: {str(e)}")
     
     return pdf_docs
 
