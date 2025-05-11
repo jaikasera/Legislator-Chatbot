@@ -39,3 +39,5 @@ The application is built using Streamlit for the frontend, OpenAI for LLM proces
 
 ###  Additional Notes
 - The `additional_data` folder contains the scraped bills, which are currently being excluded from indexing to avoid excessive load times. They can be optionally included if needed for more comprehensive responses.
+
+<img width="1463" alt="Screenshot 2025-05-10 at 10 21 10 PM" src="https://github.com/user-attachments/assets/6de6d544-581f-46bf-95de-d6d48107dcdb" />
