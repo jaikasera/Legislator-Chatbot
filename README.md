@@ -1,6 +1,6 @@
 # Policy RAG Chatbot (Legislator Chatbot)
 
-The Policy RAG Chatbot leverages Retrieval Augmented Generation (RAG) to provide up-to-date information about US legislation and policy using documents such as bills, hearings, and voting polls. By integrating recent data scraped from the US Congress website, the chatbot can answer policy-related questions more accurately than a standard LLM.
+The Policy RAG Chatbot leverages Retrieval Augmented Generation (RAG) to provide up-to-date information about US legislation and policy (specifically in the Senate) using documents such as bills, hearings, and voting polls. By integrating recent data scraped from the US Congress website, the chatbot can answer policy-related questions more accurately than a standard LLM.
 
 ###  Overview
 
@@ -23,10 +23,11 @@ The application is built using Streamlit for the frontend, OpenAI for LLM proces
 
 1. **Run the Application:**
    - Ensure all dependencies are installed using `pip install -r requirements.txt`.
-   - Set the OpenAI API key in the Streamlit secrets file.
+   - Create a .streamlit folder and set the OpenAI API key in a secrets.toml file.
+   - Removing a rows from the hearings.csv file will significantly reduce the runtime of the application. 
 
 2. **Initialize the RAG Model:**
-   - Upon startup, the application loads data from the `data` folder and processes additional PDFs from provided CSVs.
+   - Upon startup, the application loads data from the `data` folder and processes additional PDFs from the provided CSVs.
    - Data is indexed using LlamaIndex to create a searchable vector store.
 
 3. **Chat with the Bot:**
@@ -37,4 +38,4 @@ The application is built using Streamlit for the frontend, OpenAI for LLM proces
 - **Response:** The model retrieves relevant data from the indexed voting poll documents and provides a detailed, factual response based on actual legislative records.
 
 ###  Additional Notes
-- The `additional_data` folder contains the scraped bills, which are not indexed by default to avoid excessive load times. They can be optionally included if needed for more comprehensive responses.
+- The `additional_data` folder contains the scraped bills, which are currently being excluded from indexing to avoid excessive load times. They can be optionally included if needed for more comprehensive responses.
