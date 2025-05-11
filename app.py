@@ -14,9 +14,9 @@ from llama_index.readers.file import PDFReader
 Settings.chunk_size = 2048
 Settings.chunk_overlap = 100
 
-st.set_page_config(page_title="Policy RAG Chatbot (Updated 2024)", page_icon="", layout="centered", initial_sidebar_state="auto", menu_items=None)
+st.set_page_config(page_title="Legislator Chatbot (Updated 2024)", page_icon="", layout="centered", initial_sidebar_state="auto", menu_items=None)
 openai.api_key = st.secrets["openai_key"]
-st.title("Policy RAG Chatbot (Updated 2024)")
+st.title("Legislator Chatbot (Updated 2024)")
 st.info("Ask questions regarding current Senate legislature and receive up-to-date answers based on real documents (bills, hearings, and voting history)", icon="📃")
          
 if "messages" not in st.session_state.keys(): # Initialize the chat messages history
