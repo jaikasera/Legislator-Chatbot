@@ -24,7 +24,7 @@ The application is built using Streamlit for the frontend, OpenAI for LLM proces
 1. **Run the Application:**
    - Ensure all dependencies are installed using `pip install -r requirements.txt`.
    - Create a .streamlit folder and set the OpenAI API key in a secrets.toml file.
-   - Removing a rows from the hearings.csv file will significantly reduce the runtime of the application. 
+   - Removing rows from the hearings.csv file will significantly reduce the runtime of the application. 
 
 2. **Initialize the RAG Model:**
    - Upon startup, the application loads data from the `data` folder and processes additional PDFs from the provided CSVs.
