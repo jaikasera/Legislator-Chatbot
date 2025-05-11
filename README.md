@@ -1,6 +1,6 @@
-# Policy RAG Chatbot (Legislator Chatbot)
+# Legislator Chatbot
 
-The Policy RAG Chatbot leverages Retrieval Augmented Generation (RAG) to provide up-to-date information about US legislation and policy (specifically in the Senate) using documents such as bills, hearings, and voting polls. By integrating recent data scraped from the US Congress website, the chatbot can answer policy-related questions more accurately than a standard LLM.
+The Legislator Chatbot is a chatbot that leverages Retrieval Augmented Generation (RAG) to provide up-to-date information about US legislation and policy (specifically in the Senate) using documents such as bills, hearings, and voting polls. By integrating recent data scraped from the US Congress website, the chatbot can answer policy-related questions more accurately than a standard LLM.
 
 ###  Overview
 
