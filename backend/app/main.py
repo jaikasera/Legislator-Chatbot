@@ -54,8 +54,6 @@ def process_all_pdfs():
         for row in df.itertuples(index=False):
             for cell in row:
                 if isinstance(cell, str) and cell.endswith('.pdf'):
-                    if pdf_count >= 10:
-                        return pdf_docs
                     print(f"Processing PDF {pdf_count + 1}: {cell}")
                     response = requests.get(cell)
                     if response.status_code == 200:
