@@ -19,6 +19,7 @@ The application is built using:
 - **LLM Processing:** OpenAI
 - **RAG Indexing and Retrieval:** LlamaIndex
 - **Web Scraping Tools:** Selenium + BeautifulSoup
+- **Node.js:** Used for managing frontend dependencies and running the development server
 
 ### Initialize the RAG Model
 
