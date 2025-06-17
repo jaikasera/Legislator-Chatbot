@@ -15,6 +15,7 @@ import requests
 import tempfile
 from pathlib import Path
 from llama_index.readers.file.base import PDFReader
+import chromadb
 
 
 load_dotenv()
@@ -29,6 +30,12 @@ app.add_middleware(
 )
 
 client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+# Initialize ChromaDB client
+chroma_client = chromadb.Client()
+
+# Create a collection
+collection = chroma_client.create_collection(name='legislator_data')
 
 class ChatMessage(BaseModel):
     role: str
@@ -136,6 +143,10 @@ async def chat(request: ChatRequest):
         print(response.response)
         print("-"*50 + "\n")
         
+        # Store the chat message and response in ChromaDB
+        add_data_to_collection(request.message)
+        add_data_to_collection(response.response)
+        
         return ChatResponse(response=response.response)
     except Exception as e:
         print(f"\nError during chat: {str(e)}")
@@ -148,4 +159,18 @@ async def health_check():
 
 @app.get("/")
 async def root():
-    return {"message": "Server is running!"} 
+    return {"message": "Server is running!"}
+
+def add_data_to_collection(data):
+    collection.add(
+        documents=[data],
+        metadatas=[{'source': 'legislator_data'}],
+        ids=['1']
+    )
+
+def query_data_from_collection(query):
+    results = collection.query(
+        query_texts=[query],
+        n_results=1
+    )
+    return results

@@ -11,4 +11,5 @@ setuptools>=65.5.1
 pypdf==3.17.1
 sentence-transformers==2.2.2
 transformers==4.36.2
-httpx==0.23.3 
+httpx==0.23.3
+chromadb==0.4.22 
