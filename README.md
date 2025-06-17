@@ -83,3 +83,4 @@ npm start
 
 3. Open your browser and navigate to `http://localhost:3000`
 
+<img width="1464" alt="Screenshot 2025-06-16 at 6 55 05 PM" src="https://github.com/user-attachments/assets/d96ed219-6e72-446a-bb0c-efe9c2567c8c" />
